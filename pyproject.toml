@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "adapter_overseer"
+version = "0.1.0"
+description = "Inspired by the short curcuit paper (https://arxiv.org/pdf/2406.04313), we see if this approach can be used for honesty"
+authors = ["wassname"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+numpy = "^1.26.1"
+pandas = "^2.1.1"
+matplotlib = "^3.8.0"
+scikit-learn = "^1.3.1"
+loguru = "^0.7.2"
+tqdm = "^4.66.1"
+einops = "^0.7.0"
+jaxtyping = "^0.2.28"
+eleuther-elk = "0.1.1"
+baukit = {git = "https://github.com/davidbau/baukit"}
+# simple-parsing = "^0.1.4"
+torch = {version = "^2.3+cu121", source = "pytorch"}
+peft = "^0.11.1"
+transformers = "4.41.0"
+# accelerate = "^0.24.1"
+# lightning = "^2.2.5"
+# torchinfo = "^1.8.0"
+# accelerate = "^0.24.1"
+bitsandbytes = "^0.43.1"
+accelerate = "^0.31.0"
+loralib = "^0.1.2"
+simple-parsing = "^0.1.5"
+datasets = "^2.19.2"
+lightning = "^2.2.5"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.25.2"
+ruff = "^0.1.3"
+
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu121"
+priority = "explicit"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[virtualenvs]
+create = true
+in-project = true
