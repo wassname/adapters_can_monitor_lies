@@ -32,6 +32,7 @@ loralib = "^0.1.2"
 simple-parsing = "^0.1.5"
 datasets = "^2.19.2"
 lightning = "^2.2.5"
+trl = "^0.9.4"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.25.2"

@@ -2986,6 +2986,20 @@ docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments
 testing = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "importlib-metadata", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "mypy (==1.9)", "packaging (>=23.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.1)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-home (>=0.5)", "pytest-mypy", "pytest-perf", "pytest-ruff (>=0.2.1)", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
+name = "shtab"
+version = "1.7.1"
+description = "Automagic shell tab completion for Python CLI applications"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "shtab-1.7.1-py3-none-any.whl", hash = "sha256:32d3d2ff9022d4c77a62492b6ec875527883891e33c6b479ba4d41a51e259983"},
+    {file = "shtab-1.7.1.tar.gz", hash = "sha256:4e4bcb02eeb82ec45920a5d0add92eac9c9b63b2804c9196c1f1fdc2d039243c"},
+]
+
+[package.extras]
+dev = ["pytest (>=6)", "pytest-cov", "pytest-timeout"]
+
+[[package]]
 name = "simple-parsing"
 version = "0.1.5"
 description = "A small utility for simplifying and cleaning up argument parsing scripts."
@@ -3466,6 +3480,33 @@ tests = ["autopep8", "flake8", "isort", "numpy", "pytest", "scipy (>=1.7.1)", "t
 tutorials = ["matplotlib", "pandas", "tabulate", "torch"]
 
 [[package]]
+name = "trl"
+version = "0.9.4"
+description = "Train transformer language models with reinforcement learning."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "trl-0.9.4-py3-none-any.whl", hash = "sha256:a7322f73d818e4ff73441520ae2494ce46ce4c8052058fff7cb80d323ff87e28"},
+]
+
+[package.dependencies]
+accelerate = "*"
+datasets = "*"
+numpy = ">=1.18.2"
+torch = ">=1.4.0"
+transformers = ">=4.31.0"
+tyro = ">=0.5.11"
+
+[package.extras]
+benchmark = ["deepspeed", "ghapi", "openrlbenchmark (==0.2.1a5)", "requests", "wandb"]
+deepspeed = ["deepspeed (>=0.9.5)"]
+dev = ["accelerate", "bitsandbytes (<=0.41.1)", "deepspeed", "deepspeed (>=0.9.5)", "diffusers (>=0.18.0)", "ghapi", "openrlbenchmark (==0.2.1a5)", "parameterized", "peft (>=0.4.0)", "pytest", "pytest-cov", "pytest-xdist", "requests", "scikit-learn", "wandb"]
+diffusers = ["diffusers (>=0.18.0)"]
+peft = ["peft (>=0.4.0)"]
+quantization = ["bitsandbytes (<=0.41.1)"]
+test = ["accelerate", "parameterized", "pytest", "pytest-cov", "pytest-xdist", "scikit-learn"]
+
+[[package]]
 name = "typeguard"
 version = "2.13.3"
 description = "Run-time type checker for Python"
@@ -3490,6 +3531,27 @@ files = [
     {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
     {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
 ]
+
+[[package]]
+name = "tyro"
+version = "0.8.4"
+description = "Strongly typed, zero-effort CLI interfaces"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "tyro-0.8.4-py3-none-any.whl", hash = "sha256:e0990d8f14f7455c6e6a86e9fd890c411ef7b55686f75885837e0b616be3340f"},
+    {file = "tyro-0.8.4.tar.gz", hash = "sha256:ae87205a89406ae2adcf579e1df43328de3bc3a1e95ddb49f7c8e61405bd4adc"},
+]
+
+[package.dependencies]
+colorama = {version = ">=0.4.0", markers = "platform_system == \"Windows\""}
+docstring-parser = ">=0.14.1"
+rich = ">=11.1.0"
+shtab = ">=1.5.6"
+typing-extensions = ">=4.7.0"
+
+[package.extras]
+dev = ["PyYAML (>=6.0)", "attrs (>=21.4.0)", "coverage[toml] (>=6.5.0)", "eval-type-backport (>=0.1.3)", "flax (>=0.6.9)", "frozendict (>=2.3.4)", "mypy (>=1.4.1)", "numpy (>=1.20.0)", "omegaconf (>=2.2.2)", "pydantic (>=2.5.2)", "pyright (>=1.1.349)", "pytest (>=7.1.2)", "pytest-cov (>=3.0.0)", "ruff (>=0.1.13)", "torch (>=1.10.0)"]
 
 [[package]]
 name = "tzdata"
@@ -3767,4 +3829,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "714b84ad1ae8c006b46f058a1989d40940231470a94b0ee841fca47f44f5bd55"
+content-hash = "529edb9365ec94a817526d9dee7a8f55cfa24bf2a18a0df25f7e1d829a289d5f"

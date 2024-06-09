@@ -18,7 +18,7 @@ class ExtractConfig(Serializable):
     
     model: str = "failspy/Llama-3-8B-Instruct-abliterated"
 
-    collection_layers: tuple[str, ...] = ("model.layers.10", "model.layers.20", )
+    collection_layers: tuple[str, ...] = ("base_model.model.model.layers.10", "base_model.model.model.layers.20", )
     # """Names of layers to extract from using baukit.nethook.TraceDict"""
 
     batch_size: int = 2
