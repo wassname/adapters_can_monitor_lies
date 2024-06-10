@@ -14,3 +14,12 @@ Started project using cookiecutter data science project template.
 - for lying llama
   - https://huggingface.co/failspy/Llama-3-8B-Instruct-abliterated
     - https://github.com/FailSpy/abliterator
+
+
+# 2024-06-11 05:44:42
+
+Hmm It's working in terms of probs. But coherency is lost. Maybe I need to generate more than one tokens?
+
+oh I was taking the diff AFTER collection layers
+could try using proper llama formatting too
+can try gen
