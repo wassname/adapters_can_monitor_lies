@@ -8,8 +8,6 @@ from random import Random
 from typing import Any, Iterator, Literal, List, Dict
 from pathlib import Path
 # import datasets
-import json
-from jinja2 import TemplateError
 from datasets import ClassLabel, Dataset, Value, load_dataset
 import yaml
 import numpy as np
@@ -21,27 +19,16 @@ from elk.utils import (
     select_split,
 )
 import datasets
-import functools
 
 from elk.extraction.balanced_sampler import BalancedSampler, FewShotSampler
 import pandas as pd
 from loguru import logger
 
 from adapter_overseer.helpers.ds import shuffle_dataset_by
-from adapter_overseer.helpers.scores import row_choice_ids
-from transformers import PreTrainedTokenizerBase
 
 
 # Local path to the folder containing the templates
 TEMPLATES_FOLDER_PATH = Path(__file__).parent / "templates"
-
-def load_prompt_structure(prompt_format='llama2'):
-    # for use with https://huggingface.co/docs/transformers/main/chat_templating is the tokenizer doesn't include it
-    f = TEMPLATES_FOLDER_PATH  / "prompt_formats" / f"{prompt_format}.jinja2"
-    if not f.exists():
-        raise FileNotFoundError(f"Could not find prompt format {prompt_format} at {f}")
-    return f.open().read()
-
 
 def load_default_sys_instructions(path='system.yaml'):
     f = TEMPLATES_FOLDER_PATH / path
@@ -295,46 +282,25 @@ def _convert_to_prompts(
 
     return prompts
 
-def format_prompt(tokenizer, messages):
-    # if not chat template is present, load it from structure.yaml onto tokenizer
-    # https://huggingface.co/docs/transformers/main/chat_templating
-    try:
-        q = tokenizer.apply_chat_template(messages, tokenize=False)
-    except TemplateError as e:
-        if 'Conversation roles must alternate user/assistant/user/assistant/...' in str(e):
-            system = messages[0]['content']
-            q = tokenizer.apply_chat_template(messages[1:], tokenize=False)
-            q = system + q
-        else:
-            raise e
-    return q
 
 
-def load_preproc_datasets(dataset_names: List[str], tokenizer: PreTrainedTokenizerBase, N:int, prompt_format:str = None, split_type:str="train", seed=42, num_shots=1, max_length=999):
+def load_preproc_datasets(dataset_names: List[str], N:int, split_type:str="train", seed=42, num_shots=1):
     datasets2 = []
     n = N//len(dataset_names)+1
     for ds_name in dataset_names:
         ds_tokens1 = load_preproc_dataset(
             ds_name,
-            tokenizer,
             N=n,
             seed=seed,
             num_shots=num_shots,
-            max_length=max_length,
-            prompt_format=prompt_format,
         ).with_format("torch")
         datasets2.append(ds_tokens1)
     ds_tokens = datasets.interleave_datasets(datasets2, seed=seed)
 
-    # inds = list(range(ds_tokens))
-    # Random(seed).shuffle(inds)
-    # ds_tokens = ds_tokens.select(inds)
-
     return ds_tokens
 
 
-def load_preproc_dataset(ds_name: str, tokenizer: PreTrainedTokenizerBase, N:int, prompt_format:str = None, split_type:str="train", seed=42, num_shots=1, max_length=999, sys_instructions=default_sys_instructions) -> Dataset:
-    # rng = Random(seed)
+def load_preproc_dataset(ds_name: str, N:int, split_type:str="train", seed=42, num_shots=1, sys_instructions=default_sys_instructions) -> Dataset:
     ds_prompts = Dataset.from_generator(
         load_prompts,
         gen_kwargs=dict(
@@ -342,69 +308,10 @@ def load_preproc_dataset(ds_name: str, tokenizer: PreTrainedTokenizerBase, N:int
             num_shots=num_shots,
             split_type=split_type,
             sys_instructions=sys_instructions,
-            # template_path=template_path,
             seed=seed,
-            N=N*3,
+            N=N,
         ),
-        # prefetch=False,
-        # num_proc=0,
         keep_in_memory=False,
     )
-    
-    
-    # ## Format prompts
-    # The prompt is the thing we most often have to change and debug. So we do it explicitly here.
-    # We do it as transforms on a huggingface dataset.
-    # In this case we use multishot examples from train, and use the test set to generated the hidden states dataset. We will test generalisation on a whole new dataset.
-    if tokenizer.chat_template is None:
-        if prompt_format is not None:
-            logger.info(f"setting tokenizer chat template to {prompt_format}")
-            tokenizer.chat_template = load_prompt_structure(prompt_format=prompt_format)
-        else:
-            logger.error(f"tokenizer has no chat template, and you have not set one. Using default one which might lead to poor performance. Set it in the config")
-            logger.debug(f"tokenizer already has a chat template: \n\n{tokenizer.chat_template}\n\n. overriding with {prompt_format}")
-
-    ds_tokens = (
-        ds_prompts
-        .map(lambda ex: {'question': format_prompt(tokenizer, ex['messages'])}, desc="format_prompt")
-        .map(
-            lambda ex: tokenizer(
-                ex["question"], padding="max_length", max_length=max_length, truncation=True, add_special_tokens=True,
-                return_tensors="pt",
-                return_attention_mask=True,
-                # return_overflowing_tokens=True,
-            ),
-            batched=True,
-            desc='tokenize',
-        )
-        .map(lambda r: {"truncated": np.sum(r["attention_mask"], 0)==max_length}, desc='truncated')
-        .map(lambda r: {"length": np.sum(r["attention_mask"], 0)}, desc='truncated')
-        .map(
-            lambda r: {"prompt_truncated": tokenizer.batch_decode(r["input_ids"])},
-            batched=True,
-            desc='prompt_truncated',
-        )
-        .map(lambda r: {'choice_ids': row_choice_ids(r, tokenizer)}, desc='choice_ids')
-    )
-    
-    b4 = ds_tokens.num_rows
-    # print('num_rows', ds_tokens.num_rows)
-    logger.info(f"median token length: {np.median(ds_tokens['length'])} for {ds_name}. max_length={max_length}")
-    # print(np.histogram(ds_tokens['length']))
-    truncation_rate = np.mean(ds_tokens['truncated'])
-    assert truncation_rate<0.75, f"truncation rate is too high {truncation_rate}. Try a longer max_length than {max_length}"
-    logger.info(f"truncation rate: {truncation_rate:2.2%} on {ds_name}")
-    ds_tokens = ds_tokens.filter(lambda r: r["truncated"] == False)
-
-    # print('num_rows', ds_tokens.num_rows)
-    ds_tokens = shuffle_dataset_by(ds_tokens, target='label_true', random_state=seed, stratify_columns=[])
-    # print('num_rows', ds_tokens.num_rows)
-    
-    # ## Filter out truncated examples
-    ds_tokens = ds_tokens.filter(lambda r: not r['truncated'])
-    logger.info(f'num_rows (after filtering out truncated rows) {b4}=>{ds_tokens.num_rows}')
-    assert len(ds_tokens), f'No examples left after filtering out truncated rows, try a longer max_length than {max_length}'
-    assert len(ds_tokens)>=N, f'Few {len(ds_tokens)}<{N} examples left after filtering out truncated rows, try a longer max_length than {max_length}'
-    if len(ds_tokens)>N:
-        ds_tokens = ds_tokens.select(range(N))
-    return ds_tokens
+    ds_prompts = shuffle_dataset_by(ds_prompts, target='label_true', random_state=seed, stratify_columns=[])
+    return ds_prompts
