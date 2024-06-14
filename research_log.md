@@ -23,3 +23,36 @@ Hmm It's working in terms of probs. But coherency is lost. Maybe I need to gener
 oh I was taking the diff AFTER collection layers
 could try using proper llama formatting too
 can try gen
+
+# 2024-06-13 06:09:59
+
+So it's kind of worked a few times but it is
+- unstable
+- slow
+- and I'm not doing the truthfull QA eval properly
+- also my dataset is multishot lies.... but I need to measure how effective it is
+
+TODO:
+- improve dataset, sys prompts, eval
+- for the retrain, collect hs over many samples? not sure if this would be a blunt instrument or good
+- add training loss etc
+- fix eval
+- brainstorm other mechinterp composable options
+  - erasing concepts
+  - removing a concept while retaining a good one
+  - steering
+
+
+A dataset of prompts designed to elicit lies using system prompts and multi shot examples.  For a particular huggingface model, you can gent the subset of the dataset that the model can answer correctly, but doesn't.
+
+First I need to make the dataset
+- so system prompts often don't help... but can't hurt?
+- first make a test dataset
+- then input a hugginface model
+- make it a seperate repo
+
+
+#  2024-06-14 15:12:21
+
+I moved ds creating to https://github.com/wassname/lie_elicitation_prompts
+It's much better! I really check for knowledge, the code is cleaner etc
