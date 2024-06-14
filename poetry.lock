@@ -233,22 +233,17 @@ resolved_reference = "9d51abd51ebf29769aecc38c4cbef459b731a36e"
 
 [[package]]
 name = "bitsandbytes"
-version = "0.43.1"
+version = "0.42.0"
 description = "k-bit optimizers and matrix multiplication routines."
 optional = false
 python-versions = "*"
 files = [
-    {file = "bitsandbytes-0.43.1-py3-none-manylinux_2_24_x86_64.whl", hash = "sha256:a81c826d576d6d691c7b4a7491c8fdc0f37f769795d6ca2e54afa605d2c260a3"},
-    {file = "bitsandbytes-0.43.1-py3-none-win_amd64.whl", hash = "sha256:52c1c7189a6ca006555a9663e544e75f40520a97a26e075411f9f9aca0771fcd"},
+    {file = "bitsandbytes-0.42.0-py3-none-any.whl", hash = "sha256:63798680912cc63bb77b535a2d0860af024e290a52e157f777ad2a52e2585967"},
+    {file = "bitsandbytes-0.42.0.tar.gz", hash = "sha256:fc1505f184f0d275766f2a6c663f1a43b734c1409b5c5a406f3a6073d9f329fd"},
 ]
 
 [package.dependencies]
-numpy = "*"
-torch = "*"
-
-[package.extras]
-benchmark = ["matplotlib", "pandas"]
-test = ["scipy"]
+scipy = "*"
 
 [[package]]
 name = "certifi"
@@ -551,37 +546,37 @@ tests = ["pytest", "pytest-cov", "pytest-xdist"]
 
 [[package]]
 name = "datasets"
-version = "2.19.2"
+version = "2.20.0"
 description = "HuggingFace community-driven open-source library of datasets"
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "datasets-2.19.2-py3-none-any.whl", hash = "sha256:e07ff15d75b1af75c87dd96323ba2a361128d495136652f37fd62f918d17bb4e"},
-    {file = "datasets-2.19.2.tar.gz", hash = "sha256:eccb82fb3bb5ee26ccc6d7a15b7f1f834e2cc4e59b7cff7733a003552bad51ef"},
+    {file = "datasets-2.20.0-py3-none-any.whl", hash = "sha256:76ac02e3bdfff824492e20678f0b6b1b6d080515957fe834b00c2ba8d6b18e5e"},
+    {file = "datasets-2.20.0.tar.gz", hash = "sha256:3c4dbcd27e0f642b9d41d20ff2efa721a5e04b32b2ca4009e0fc9139e324553f"},
 ]
 
 [package.dependencies]
 aiohttp = "*"
 dill = ">=0.3.0,<0.3.9"
 filelock = "*"
-fsspec = {version = ">=2023.1.0,<=2024.3.1", extras = ["http"]}
+fsspec = {version = ">=2023.1.0,<=2024.5.0", extras = ["http"]}
 huggingface-hub = ">=0.21.2"
 multiprocess = "*"
 numpy = ">=1.17"
 packaging = "*"
 pandas = "*"
-pyarrow = ">=12.0.0"
+pyarrow = ">=15.0.0"
 pyarrow-hotfix = "*"
 pyyaml = ">=5.1"
-requests = ">=2.32.1"
-tqdm = ">=4.62.1"
+requests = ">=2.32.2"
+tqdm = ">=4.66.3"
 xxhash = "*"
 
 [package.extras]
 apache-beam = ["apache-beam (>=2.26.0)"]
 audio = ["librosa", "soundfile (>=0.12.1)"]
 benchmarks = ["tensorflow (==2.12.0)", "torch (==2.0.1)", "transformers (==4.30.1)"]
-dev = ["Pillow (>=9.4.0)", "absl-py", "apache-beam (>=2.26.0)", "elasticsearch (<8.0.0)", "faiss-cpu (>=1.6.4)", "jax (>=0.3.14)", "jaxlib (>=0.3.14)", "joblib (<1.3.0)", "joblibspark", "librosa", "lz4", "polars[timezone] (>=0.20.0)", "protobuf (<4.0.0)", "py7zr", "pyspark (>=3.4)", "pytest", "pytest-datadir", "pytest-xdist", "rarfile (>=4.0)", "ruff (>=0.3.0)", "s3fs", "s3fs (>=2021.11.1)", "soundfile (>=0.12.1)", "sqlalchemy", "tensorflow (>=2.6.0)", "tiktoken", "torch", "torch (>=2.0.0)", "transformers", "typing-extensions (>=4.6.1)", "zstandard"]
+dev = ["Pillow (>=9.4.0)", "absl-py", "elasticsearch (<8.0.0)", "faiss-cpu (>=1.6.4)", "jax (>=0.3.14)", "jaxlib (>=0.3.14)", "joblib (<1.3.0)", "joblibspark", "librosa", "lz4", "polars[timezone] (>=0.20.0)", "protobuf (<4.0.0)", "py7zr", "pyspark (>=3.4)", "pytest", "pytest-datadir", "pytest-xdist", "rarfile (>=4.0)", "ruff (>=0.3.0)", "s3fs", "s3fs (>=2021.11.1)", "soundfile (>=0.12.1)", "sqlalchemy", "tensorflow (>=2.6.0)", "tiktoken", "torch", "torch (>=2.0.0)", "transformers", "typing-extensions (>=4.6.1)", "zstandard"]
 docs = ["s3fs", "tensorflow (>=2.6.0)", "torch", "transformers"]
 jax = ["jax (>=0.3.14)", "jaxlib (>=0.3.14)"]
 metrics-tests = ["Werkzeug (>=1.0.1)", "accelerate", "bert-score (>=0.3.6)", "jiwer", "langdetect", "mauve-text", "nltk", "requests-file (>=1.5.1)", "rouge-score", "sacrebleu", "sacremoses", "scikit-learn", "scipy", "sentencepiece", "seqeval", "six (>=1.15.0,<1.16.0)", "spacy (>=3.0.0)", "texttable (>=1.6.3)", "tldextract", "tldextract (>=3.1.0)", "toml (>=0.10.1)", "typer (<0.5.0)"]
@@ -589,7 +584,7 @@ quality = ["ruff (>=0.3.0)"]
 s3 = ["s3fs"]
 tensorflow = ["tensorflow (>=2.6.0)"]
 tensorflow-gpu = ["tensorflow (>=2.6.0)"]
-tests = ["Pillow (>=9.4.0)", "absl-py", "apache-beam (>=2.26.0)", "elasticsearch (<8.0.0)", "faiss-cpu (>=1.6.4)", "jax (>=0.3.14)", "jaxlib (>=0.3.14)", "joblib (<1.3.0)", "joblibspark", "librosa", "lz4", "polars[timezone] (>=0.20.0)", "protobuf (<4.0.0)", "py7zr", "pyspark (>=3.4)", "pytest", "pytest-datadir", "pytest-xdist", "rarfile (>=4.0)", "s3fs (>=2021.11.1)", "soundfile (>=0.12.1)", "sqlalchemy", "tensorflow (>=2.6.0)", "tiktoken", "torch (>=2.0.0)", "transformers", "typing-extensions (>=4.6.1)", "zstandard"]
+tests = ["Pillow (>=9.4.0)", "absl-py", "elasticsearch (<8.0.0)", "faiss-cpu (>=1.6.4)", "jax (>=0.3.14)", "jaxlib (>=0.3.14)", "joblib (<1.3.0)", "joblibspark", "librosa", "lz4", "polars[timezone] (>=0.20.0)", "protobuf (<4.0.0)", "py7zr", "pyspark (>=3.4)", "pytest", "pytest-datadir", "pytest-xdist", "rarfile (>=4.0)", "s3fs (>=2021.11.1)", "soundfile (>=0.12.1)", "sqlalchemy", "tensorflow (>=2.6.0)", "tiktoken", "torch (>=2.0.0)", "transformers", "typing-extensions (>=4.6.1)", "zstandard"]
 torch = ["torch"]
 vision = ["Pillow (>=9.4.0)"]
 
@@ -769,19 +764,33 @@ tests = ["asttokens (>=2.1.0)", "coverage", "coverage-enable-subprocess", "ipyth
 
 [[package]]
 name = "filelock"
-version = "3.14.0"
+version = "3.15.1"
 description = "A platform independent file lock."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "filelock-3.14.0-py3-none-any.whl", hash = "sha256:43339835842f110ca7ae60f1e1c160714c5a6afd15a2873419ab185334975c0f"},
-    {file = "filelock-3.14.0.tar.gz", hash = "sha256:6ea72da3be9b8c82afd3edcf99f2fffbb5076335a5ae4d03248bb5b6c3eae78a"},
+    {file = "filelock-3.15.1-py3-none-any.whl", hash = "sha256:71b3102950e91dfc1bb4209b64be4dc8854f40e5f534428d8684f953ac847fac"},
+    {file = "filelock-3.15.1.tar.gz", hash = "sha256:58a2549afdf9e02e10720eaa4d4470f56386d7a6f72edd7d0596337af8ed7ad8"},
 ]
 
 [package.extras]
 docs = ["furo (>=2023.9.10)", "sphinx (>=7.2.6)", "sphinx-autodoc-typehints (>=1.25.2)"]
-testing = ["covdefaults (>=2.3)", "coverage (>=7.3.2)", "diff-cover (>=8.0.1)", "pytest (>=7.4.3)", "pytest-cov (>=4.1)", "pytest-mock (>=3.12)", "pytest-timeout (>=2.2)"]
+testing = ["covdefaults (>=2.3)", "coverage (>=7.3.2)", "diff-cover (>=8.0.1)", "pytest (>=7.4.3)", "pytest-asyncio (>=0.21)", "pytest-cov (>=4.1)", "pytest-mock (>=3.12)", "pytest-timeout (>=2.2)"]
 typing = ["typing-extensions (>=4.8)"]
+
+[[package]]
+name = "flash-attn"
+version = "2.5.9.post1"
+description = "Flash Attention: Fast and Memory-Efficient Exact Attention"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "flash_attn-2.5.9.post1.tar.gz", hash = "sha256:a92db1683a5b141a0f4371d251ae9f73e9aef629b3a58a50d0ef430266c68782"},
+]
+
+[package.dependencies]
+einops = "*"
+torch = "*"
 
 [[package]]
 name = "fonttools"
@@ -936,13 +945,13 @@ files = [
 
 [[package]]
 name = "fsspec"
-version = "2024.3.1"
+version = "2024.5.0"
 description = "File-system specification"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "fsspec-2024.3.1-py3-none-any.whl", hash = "sha256:918d18d41bf73f0e2b261824baeb1b124bcf771767e3a26425cd7dec3332f512"},
-    {file = "fsspec-2024.3.1.tar.gz", hash = "sha256:f39780e282d7d117ffb42bb96992f8a90795e4d0fb0f661a70ca39fe9c43ded9"},
+    {file = "fsspec-2024.5.0-py3-none-any.whl", hash = "sha256:e0fdbc446d67e182f49a70b82cf7889028a63588fde6b222521f10937b2b670c"},
+    {file = "fsspec-2024.5.0.tar.gz", hash = "sha256:1d021b0b0f933e3b3029ed808eb400c08ba101ca2de4b3483fbc9ca23fcee94a"},
 ]
 
 [package.dependencies]
@@ -953,7 +962,7 @@ abfs = ["adlfs"]
 adl = ["adlfs"]
 arrow = ["pyarrow (>=1)"]
 dask = ["dask", "distributed"]
-devel = ["pytest", "pytest-cov"]
+dev = ["pre-commit", "ruff"]
 dropbox = ["dropbox", "dropboxdrivefs", "requests"]
 full = ["adlfs", "aiohttp (!=4.0.0a0,!=4.0.0a1)", "dask", "distributed", "dropbox", "dropboxdrivefs", "fusepy", "gcsfs", "libarchive-c", "ocifs", "panel", "paramiko", "pyarrow (>=1)", "pygit2", "requests", "s3fs", "smbprotocol", "tqdm"]
 fuse = ["fusepy"]
@@ -970,6 +979,9 @@ s3 = ["s3fs"]
 sftp = ["paramiko"]
 smb = ["smbprotocol"]
 ssh = ["paramiko"]
+test = ["aiohttp (!=4.0.0a0,!=4.0.0a1)", "numpy", "pytest", "pytest-asyncio (!=0.22.0)", "pytest-benchmark", "pytest-cov", "pytest-mock", "pytest-recording", "pytest-rerunfailures", "requests"]
+test-downstream = ["aiobotocore (>=2.5.4,<3.0.0)", "dask-expr", "dask[dataframe,test]", "moto[server] (>4,<5)", "pytest-timeout", "xarray"]
+test-full = ["adlfs", "aiohttp (!=4.0.0a0,!=4.0.0a1)", "cloudpickle", "dask", "distributed", "dropbox", "dropboxdrivefs", "fastparquet", "fusepy", "gcsfs", "jinja2", "kerchunk", "libarchive-c", "lz4", "notebook", "numpy", "ocifs", "pandas", "panel", "paramiko", "pyarrow", "pyarrow (>=1)", "pyftpdlib", "pygit2", "pytest", "pytest-asyncio (!=0.22.0)", "pytest-benchmark", "pytest-cov", "pytest-mock", "pytest-recording", "pytest-rerunfailures", "python-snappy", "requests", "smbprotocol", "tqdm", "urllib3", "zarr", "zstandard"]
 tqdm = ["tqdm"]
 
 [[package]]
@@ -1183,13 +1195,13 @@ test = ["ipykernel", "jsonschema", "pytest (>=3.6.0)", "pytest-cov", "pytz"]
 
 [[package]]
 name = "jaxtyping"
-version = "0.2.29"
+version = "0.2.30"
 description = "Type annotations and runtime checking for shape and dtype of JAX arrays, and PyTrees."
 optional = false
 python-versions = "~=3.9"
 files = [
-    {file = "jaxtyping-0.2.29-py3-none-any.whl", hash = "sha256:3580fc4dfef4c98ef2372c2c81314d89b98a186eb78d69d925fd0546025d556f"},
-    {file = "jaxtyping-0.2.29.tar.gz", hash = "sha256:e1cd916ed0196e40402b0638449e7d051571562b2cd68d8b94961a383faeb409"},
+    {file = "jaxtyping-0.2.30-py3-none-any.whl", hash = "sha256:fdaf288fa708b28a8afaad252e4312ec7e86eb3b08857470f58ffd7419b845e4"},
+    {file = "jaxtyping-0.2.30.tar.gz", hash = "sha256:2487a12e34c3d16f95267b9172794fe9c9df929f50747f917a0015c8e1930762"},
 ]
 
 [package.dependencies]
@@ -1425,29 +1437,29 @@ files = [
 
 [[package]]
 name = "lightning"
-version = "2.2.5"
+version = "2.3.0"
 description = "The Deep Learning framework to train, deploy, and ship AI products Lightning fast."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "lightning-2.2.5-py3-none-any.whl", hash = "sha256:3fd4d37c5f912b000b922f36d4c06818de42b78f85178c2ad3e35b8af3e9218a"},
-    {file = "lightning-2.2.5.tar.gz", hash = "sha256:a6c31a2052fc30fee34aec7e31ea2a117a005d049c3593fc9cfb867a34f962bf"},
+    {file = "lightning-2.3.0-py3-none-any.whl", hash = "sha256:ed66c2053be1295c8452b996b719badf5a26a0652607c121103dfdd5d2dccfae"},
+    {file = "lightning-2.3.0.tar.gz", hash = "sha256:4bb4d6e3650d2d5f544ad60853a22efc4e164aa71b9596d13f0454b29df05130"},
 ]
 
 [package.dependencies]
-fsspec = {version = ">=2022.5.0,<2025.0", extras = ["http"]}
+fsspec = {version = ">=2022.5.0,<2026.0", extras = ["http"]}
 lightning-utilities = ">=0.8.0,<2.0"
 numpy = ">=1.17.2,<3.0"
 packaging = ">=20.0,<25.0"
 pytorch-lightning = "*"
 PyYAML = ">=5.4,<8.0"
-torch = ">=1.13.0,<4.0"
+torch = ">=2.0.0,<4.0"
 torchmetrics = ">=0.7.0,<3.0"
 tqdm = ">=4.57.0,<6.0"
 typing-extensions = ">=4.4.0,<6.0"
 
 [package.extras]
-all = ["Jinja2 (<4.0)", "PyYAML (<7.0)", "aiohttp (>=3.8.0,<4.0)", "arrow (>=1.2.0,<2.0)", "backoff (>=2.2.1,<3.0)", "beautifulsoup4 (>=4.8.0,<5.0)", "bitsandbytes (==0.41.0)", "click (<9.0)", "croniter (>=1.3.0,<1.5.0)", "dateutils (<1.0)", "deepdiff (>=5.7.0,<7.0)", "deepspeed (>=0.8.2,<=0.9.3)", "docker (>=5.0.0,<7.0)", "fastapi (>=0.92.0,<1.0)", "fsspec[http] (>=2022.5.0,<2024.0)", "gym[classic-control] (>=0.17.0,<1.0)", "hydra-core (>=1.0.5,<2.0)", "inquirer (>=2.10.0,<4.0)", "ipython[all] (<9.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "lightning-api-access (>=0.0.3)", "lightning-cloud (==0.5.69)", "lightning-fabric (>=1.9.0)", "lightning-utilities (>=0.8.0,<1.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "packaging", "psutil (<6.0)", "pydantic (>=1.7.4)", "python-multipart (>=0.0.5,<1.0)", "pytorch-lightning (>=1.9.0)", "redis (>=4.0.1,<6.0)", "requests (<3.0)", "rich (>=12.3.0,<14.0)", "s3fs (>=2022.5.0,<2024.0)", "starlette", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.14.0,<1.0)", "traitlets (>=5.3.0,<6.0)", "typing-extensions (>=4.4.0,<5.0)", "urllib3 (<3.0)", "uvicorn (<1.0)", "websocket-client (<2.0)", "websockets (<12.0)"]
+all = ["Jinja2 (<4.0)", "PyYAML (<7.0)", "aiohttp (>=3.8.0,<4.0)", "arrow (>=1.2.0,<2.0)", "backoff (>=2.2.1,<3.0)", "beautifulsoup4 (>=4.8.0,<5.0)", "bitsandbytes (>=0.42.0,<1.0)", "click (<9.0)", "croniter (>=1.3.0,<1.5.0)", "dateutils (<1.0)", "deepdiff (>=5.7.0,<7.0)", "deepspeed (>=0.8.2,<=0.9.3)", "docker (>=5.0.0,<7.0)", "fastapi (>=0.92.0,<1.0)", "fsspec[http] (>=2022.5.0,<2024.0)", "hydra-core (>=1.0.5,<2.0)", "inquirer (>=2.10.0,<4.0)", "ipython[all] (<9.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "lightning-api-access (>=0.0.3)", "lightning-cloud (==0.5.69)", "lightning-fabric (>=1.9.0)", "lightning-utilities (>=0.8.0,<1.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "packaging", "psutil (<6.0)", "pydantic (>=1.7.4)", "python-multipart (>=0.0.5,<1.0)", "pytorch-lightning (>=1.9.0)", "redis (>=4.0.1,<6.0)", "requests (<3.0)", "rich (>=12.3.0,<14.0)", "s3fs (>=2022.5.0,<2024.0)", "starlette", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.15.0,<1.0)", "traitlets (>=5.3.0,<6.0)", "typing-extensions (>=4.4.0,<5.0)", "urllib3 (<3.0)", "uvicorn (<1.0)", "websocket-client (<2.0)", "websockets (<12.0)"]
 app = ["Jinja2 (<4.0)", "PyYAML (<7.0)", "arrow (>=1.2.0,<2.0)", "backoff (>=2.2.1,<3.0)", "beautifulsoup4 (>=4.8.0,<5.0)", "click (<9.0)", "croniter (>=1.3.0,<1.5.0)", "dateutils (<1.0)", "deepdiff (>=5.7.0,<7.0)", "fastapi (>=0.92.0,<1.0)", "fsspec[http] (>=2022.5.0,<2024.0)", "inquirer (>=2.10.0,<4.0)", "lightning-cloud (==0.5.69)", "lightning-utilities (>=0.8.0,<1.0)", "packaging", "psutil (<6.0)", "pydantic (>=1.7.4)", "python-multipart (>=0.0.5,<1.0)", "requests (<3.0)", "rich (>=12.3.0,<14.0)", "starlette", "traitlets (>=5.3.0,<6.0)", "typing-extensions (>=4.4.0,<5.0)", "urllib3 (<3.0)", "uvicorn (<1.0)", "websocket-client (<2.0)", "websockets (<12.0)"]
 app-all = ["Jinja2 (<4.0)", "PyYAML (<7.0)", "aiohttp (>=3.8.0,<4.0)", "arrow (>=1.2.0,<2.0)", "backoff (>=2.2.1,<3.0)", "beautifulsoup4 (>=4.8.0,<5.0)", "click (<9.0)", "croniter (>=1.3.0,<1.5.0)", "dateutils (<1.0)", "deepdiff (>=5.7.0,<7.0)", "docker (>=5.0.0,<7.0)", "fastapi (>=0.92.0,<1.0)", "fsspec[http] (>=2022.5.0,<2024.0)", "inquirer (>=2.10.0,<4.0)", "lightning-api-access (>=0.0.3)", "lightning-cloud (==0.5.69)", "lightning-fabric (>=1.9.0)", "lightning-utilities (>=0.8.0,<1.0)", "packaging", "psutil (<6.0)", "pydantic (>=1.7.4)", "python-multipart (>=0.0.5,<1.0)", "pytorch-lightning (>=1.9.0)", "redis (>=4.0.1,<6.0)", "requests (<3.0)", "rich (>=12.3.0,<14.0)", "s3fs (>=2022.5.0,<2024.0)", "starlette", "traitlets (>=5.3.0,<6.0)", "typing-extensions (>=4.4.0,<5.0)", "urllib3 (<3.0)", "uvicorn (<1.0)", "websocket-client (<2.0)", "websockets (<12.0)"]
 app-cloud = ["docker (>=5.0.0,<7.0)", "redis (>=4.0.1,<6.0)", "s3fs (>=2022.5.0,<2024.0)"]
@@ -1458,23 +1470,23 @@ app-test = ["coverage (==7.3.1)", "httpx (==0.25.0)", "pandas", "playwright (==1
 cloud = ["docker (>=5.0.0,<7.0)", "redis (>=4.0.1,<6.0)", "s3fs (>=2022.5.0,<2024.0)"]
 components = ["aiohttp (>=3.8.0,<4.0)", "lightning-api-access (>=0.0.3)", "lightning-fabric (>=1.9.0)", "pytorch-lightning (>=1.9.0)"]
 data = ["litdata (>=0.2.0rc,<1.0)"]
-dev = ["Jinja2 (<4.0)", "PyYAML (<7.0)", "aiohttp (>=3.8.0,<4.0)", "arrow (>=1.2.0,<2.0)", "backoff (>=2.2.1,<3.0)", "beautifulsoup4 (>=4.8.0,<5.0)", "bitsandbytes (==0.41.0)", "click (<9.0)", "click (==8.1.7)", "cloudpickle (>=1.3,<3.0)", "coverage (==7.3.1)", "croniter (>=1.3.0,<1.5.0)", "dateutils (<1.0)", "deepdiff (>=5.7.0,<7.0)", "deepspeed (>=0.8.2,<=0.9.3)", "docker (>=5.0.0,<7.0)", "fastapi", "fastapi (>=0.92.0,<1.0)", "fsspec[http] (>=2022.5.0,<2024.0)", "gym[classic-control] (>=0.17.0,<1.0)", "httpx (==0.25.0)", "hydra-core (>=1.0.5,<2.0)", "inquirer (>=2.10.0,<4.0)", "ipython[all] (<9.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "lightning-api-access (>=0.0.3)", "lightning-cloud (==0.5.69)", "lightning-fabric (>=1.9.0)", "lightning-utilities (>=0.8.0,<1.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "onnx (>=0.14.0,<2.0)", "onnxruntime (>=0.15.0,<2.0)", "packaging", "pandas", "pandas (>1.0,<3.0)", "playwright (==1.38.0)", "psutil (<6.0)", "pydantic (>=1.7.4)", "pympler", "pytest (==7.4.0)", "pytest-asyncio (==0.21.1)", "pytest-cov (==4.1.0)", "pytest-doctestplus (==1.0.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "pytest-xdist (==3.3.1)", "python-multipart (>=0.0.5,<1.0)", "pytorch-lightning (>=1.9.0)", "redis (>=4.0.1,<6.0)", "requests (<3.0)", "requests-mock (==1.11.0)", "rich (>=12.3.0,<14.0)", "s3fs (>=2022.5.0,<2024.0)", "scikit-learn (>0.22.1,<2.0)", "setuptools (<69.0)", "starlette", "tensorboard (>=2.9.1,<3.0)", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchmetrics (>=0.7.0,<2.0)", "torchvision (>=0.14.0,<1.0)", "traitlets (>=5.3.0,<6.0)", "trio (<0.22.0)", "typing-extensions (>=4.4.0,<5.0)", "urllib3 (<3.0)", "uvicorn", "uvicorn (<1.0)", "websocket-client (<2.0)", "websockets (<12.0)"]
-examples = ["gym[classic-control] (>=0.17.0,<1.0)", "ipython[all] (<9.0)", "lightning-utilities (>=0.8.0,<1.0)", "requests (<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.14.0,<1.0)"]
-extra = ["Jinja2 (<4.0)", "PyYAML (<7.0)", "aiohttp (>=3.8.0,<4.0)", "arrow (>=1.2.0,<2.0)", "backoff (>=2.2.1,<3.0)", "beautifulsoup4 (>=4.8.0,<5.0)", "bitsandbytes (==0.41.0)", "click (<9.0)", "croniter (>=1.3.0,<1.5.0)", "dateutils (<1.0)", "deepdiff (>=5.7.0,<7.0)", "docker (>=5.0.0,<7.0)", "fastapi (>=0.92.0,<1.0)", "fsspec[http] (>=2022.5.0,<2024.0)", "hydra-core (>=1.0.5,<2.0)", "inquirer (>=2.10.0,<4.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "lightning-api-access (>=0.0.3)", "lightning-cloud (==0.5.69)", "lightning-fabric (>=1.9.0)", "lightning-utilities (>=0.8.0,<1.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "packaging", "psutil (<6.0)", "pydantic (>=1.7.4)", "python-multipart (>=0.0.5,<1.0)", "pytorch-lightning (>=1.9.0)", "redis (>=4.0.1,<6.0)", "requests (<3.0)", "rich (>=12.3.0,<14.0)", "s3fs (>=2022.5.0,<2024.0)", "starlette", "tensorboardX (>=2.2,<3.0)", "traitlets (>=5.3.0,<6.0)", "typing-extensions (>=4.4.0,<5.0)", "urllib3 (<3.0)", "uvicorn (<1.0)", "websocket-client (<2.0)", "websockets (<12.0)"]
-fabric-all = ["bitsandbytes (==0.41.0)", "deepspeed (>=0.8.2,<=0.9.3)", "lightning-utilities (>=0.8.0,<1.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.14.0,<1.0)"]
-fabric-dev = ["bitsandbytes (==0.41.0)", "click (==8.1.7)", "coverage (==7.3.1)", "deepspeed (>=0.8.2,<=0.9.3)", "lightning-utilities (>=0.8.0,<1.0)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchmetrics (>=0.7.0,<2.0)", "torchvision (>=0.14.0,<1.0)"]
-fabric-examples = ["lightning-utilities (>=0.8.0,<1.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.14.0,<1.0)"]
-fabric-strategies = ["bitsandbytes (==0.41.0)", "deepspeed (>=0.8.2,<=0.9.3)"]
+dev = ["Jinja2 (<4.0)", "PyYAML (<7.0)", "aiohttp (>=3.8.0,<4.0)", "arrow (>=1.2.0,<2.0)", "backoff (>=2.2.1,<3.0)", "beautifulsoup4 (>=4.8.0,<5.0)", "bitsandbytes (>=0.42.0,<1.0)", "click (<9.0)", "click (==8.1.7)", "cloudpickle (>=1.3,<3.0)", "coverage (==7.3.1)", "croniter (>=1.3.0,<1.5.0)", "dateutils (<1.0)", "deepdiff (>=5.7.0,<7.0)", "deepspeed (>=0.8.2,<=0.9.3)", "docker (>=5.0.0,<7.0)", "fastapi", "fastapi (>=0.92.0,<1.0)", "fsspec[http] (>=2022.5.0,<2024.0)", "httpx (==0.25.0)", "hydra-core (>=1.0.5,<2.0)", "inquirer (>=2.10.0,<4.0)", "ipython[all] (<9.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "lightning-api-access (>=0.0.3)", "lightning-cloud (==0.5.69)", "lightning-fabric (>=1.9.0)", "lightning-utilities (>=0.8.0,<1.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "onnx (>=0.14.0,<2.0)", "onnxruntime (>=0.15.0,<2.0)", "packaging", "pandas", "pandas (>1.0,<3.0)", "playwright (==1.38.0)", "psutil (<6.0)", "pydantic (>=1.7.4)", "pympler", "pytest (==7.4.0)", "pytest-asyncio (==0.21.1)", "pytest-cov (==4.1.0)", "pytest-doctestplus (==1.0.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "pytest-xdist (==3.3.1)", "python-multipart (>=0.0.5,<1.0)", "pytorch-lightning (>=1.9.0)", "redis (>=4.0.1,<6.0)", "requests (<3.0)", "requests-mock (==1.11.0)", "rich (>=12.3.0,<14.0)", "s3fs (>=2022.5.0,<2024.0)", "scikit-learn (>0.22.1,<2.0)", "setuptools (<69.0)", "starlette", "tensorboard (>=2.9.1,<3.0)", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchmetrics (>=0.7.0,<2.0)", "torchvision (>=0.15.0,<1.0)", "traitlets (>=5.3.0,<6.0)", "trio (<0.22.0)", "typing-extensions (>=4.4.0,<5.0)", "urllib3 (<3.0)", "uvicorn", "uvicorn (<1.0)", "websocket-client (<2.0)", "websockets (<12.0)"]
+examples = ["ipython[all] (<9.0)", "lightning-utilities (>=0.8.0,<1.0)", "requests (<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.15.0,<1.0)"]
+extra = ["Jinja2 (<4.0)", "PyYAML (<7.0)", "aiohttp (>=3.8.0,<4.0)", "arrow (>=1.2.0,<2.0)", "backoff (>=2.2.1,<3.0)", "beautifulsoup4 (>=4.8.0,<5.0)", "bitsandbytes (>=0.42.0,<1.0)", "click (<9.0)", "croniter (>=1.3.0,<1.5.0)", "dateutils (<1.0)", "deepdiff (>=5.7.0,<7.0)", "docker (>=5.0.0,<7.0)", "fastapi (>=0.92.0,<1.0)", "fsspec[http] (>=2022.5.0,<2024.0)", "hydra-core (>=1.0.5,<2.0)", "inquirer (>=2.10.0,<4.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "lightning-api-access (>=0.0.3)", "lightning-cloud (==0.5.69)", "lightning-fabric (>=1.9.0)", "lightning-utilities (>=0.8.0,<1.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "packaging", "psutil (<6.0)", "pydantic (>=1.7.4)", "python-multipart (>=0.0.5,<1.0)", "pytorch-lightning (>=1.9.0)", "redis (>=4.0.1,<6.0)", "requests (<3.0)", "rich (>=12.3.0,<14.0)", "s3fs (>=2022.5.0,<2024.0)", "starlette", "tensorboardX (>=2.2,<3.0)", "traitlets (>=5.3.0,<6.0)", "typing-extensions (>=4.4.0,<5.0)", "urllib3 (<3.0)", "uvicorn (<1.0)", "websocket-client (<2.0)", "websockets (<12.0)"]
+fabric-all = ["bitsandbytes (>=0.42.0,<1.0)", "deepspeed (>=0.8.2,<=0.9.3)", "lightning-utilities (>=0.8.0,<1.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.15.0,<1.0)"]
+fabric-dev = ["bitsandbytes (>=0.42.0,<1.0)", "click (==8.1.7)", "coverage (==7.3.1)", "deepspeed (>=0.8.2,<=0.9.3)", "lightning-utilities (>=0.8.0,<1.0)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchmetrics (>=0.7.0,<2.0)", "torchvision (>=0.15.0,<1.0)"]
+fabric-examples = ["lightning-utilities (>=0.8.0,<1.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.15.0,<1.0)"]
+fabric-strategies = ["bitsandbytes (>=0.42.0,<1.0)", "deepspeed (>=0.8.2,<=0.9.3)"]
 fabric-test = ["click (==8.1.7)", "coverage (==7.3.1)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.7.0,<2.0)"]
-pytorch-all = ["bitsandbytes (==0.41.0)", "deepspeed (>=0.8.2,<=0.9.3)", "gym[classic-control] (>=0.17.0,<1.0)", "hydra-core (>=1.0.5,<2.0)", "ipython[all] (<9.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "lightning-utilities (>=0.8.0,<1.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "requests (<3.0)", "rich (>=12.3.0,<14.0)", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.14.0,<1.0)"]
-pytorch-dev = ["bitsandbytes (==0.41.0)", "cloudpickle (>=1.3,<3.0)", "coverage (==7.3.1)", "deepspeed (>=0.8.2,<=0.9.3)", "fastapi", "gym[classic-control] (>=0.17.0,<1.0)", "hydra-core (>=1.0.5,<2.0)", "ipython[all] (<9.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "lightning-utilities (>=0.8.0,<1.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "onnx (>=0.14.0,<2.0)", "onnxruntime (>=0.15.0,<2.0)", "pandas (>1.0,<3.0)", "psutil (<6.0)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "requests (<3.0)", "rich (>=12.3.0,<14.0)", "scikit-learn (>0.22.1,<2.0)", "tensorboard (>=2.9.1,<3.0)", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.14.0,<1.0)", "uvicorn"]
-pytorch-examples = ["gym[classic-control] (>=0.17.0,<1.0)", "ipython[all] (<9.0)", "lightning-utilities (>=0.8.0,<1.0)", "requests (<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.14.0,<1.0)"]
-pytorch-extra = ["bitsandbytes (==0.41.0)", "hydra-core (>=1.0.5,<2.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "rich (>=12.3.0,<14.0)", "tensorboardX (>=2.2,<3.0)"]
+pytorch-all = ["bitsandbytes (>=0.42.0,<1.0)", "deepspeed (>=0.8.2,<=0.9.3)", "hydra-core (>=1.0.5,<2.0)", "ipython[all] (<9.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "lightning-utilities (>=0.8.0,<1.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "requests (<3.0)", "rich (>=12.3.0,<14.0)", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.15.0,<1.0)"]
+pytorch-dev = ["bitsandbytes (>=0.42.0,<1.0)", "cloudpickle (>=1.3,<3.0)", "coverage (==7.3.1)", "deepspeed (>=0.8.2,<=0.9.3)", "fastapi", "hydra-core (>=1.0.5,<2.0)", "ipython[all] (<9.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "lightning-utilities (>=0.8.0,<1.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "onnx (>=0.14.0,<2.0)", "onnxruntime (>=0.15.0,<2.0)", "pandas (>1.0,<3.0)", "psutil (<6.0)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "requests (<3.0)", "rich (>=12.3.0,<14.0)", "scikit-learn (>0.22.1,<2.0)", "tensorboard (>=2.9.1,<3.0)", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.15.0,<1.0)", "uvicorn"]
+pytorch-examples = ["ipython[all] (<9.0)", "lightning-utilities (>=0.8.0,<1.0)", "requests (<3.0)", "torchmetrics (>=0.10.0,<2.0)", "torchvision (>=0.15.0,<1.0)"]
+pytorch-extra = ["bitsandbytes (>=0.42.0,<1.0)", "hydra-core (>=1.0.5,<2.0)", "jsonargparse[signatures] (>=4.27.7,<5.0)", "matplotlib (>3.1,<4.0)", "omegaconf (>=2.0.5,<3.0)", "rich (>=12.3.0,<14.0)", "tensorboardX (>=2.2,<3.0)"]
 pytorch-strategies = ["deepspeed (>=0.8.2,<=0.9.3)"]
 pytorch-test = ["cloudpickle (>=1.3,<3.0)", "coverage (==7.3.1)", "fastapi", "onnx (>=0.14.0,<2.0)", "onnxruntime (>=0.15.0,<2.0)", "pandas (>1.0,<3.0)", "psutil (<6.0)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "scikit-learn (>0.22.1,<2.0)", "tensorboard (>=2.9.1,<3.0)", "uvicorn"]
 store = ["Jinja2 (<4.0)", "PyYAML (<7.0)", "arrow (>=1.2.0,<2.0)", "backoff (>=2.2.1,<3.0)", "beautifulsoup4 (>=4.8.0,<5.0)", "click (<9.0)", "croniter (>=1.3.0,<1.5.0)", "dateutils (<1.0)", "deepdiff (>=5.7.0,<7.0)", "fastapi (>=0.92.0,<1.0)", "fsspec[http] (>=2022.5.0,<2024.0)", "inquirer (>=2.10.0,<4.0)", "lightning-cloud (==0.5.69)", "lightning-utilities (>=0.8.0,<1.0)", "packaging", "psutil (<6.0)", "pydantic (>=1.7.4)", "python-multipart (>=0.0.5,<1.0)", "requests (<3.0)", "rich (>=12.3.0,<14.0)", "starlette", "traitlets (>=5.3.0,<6.0)", "typing-extensions (>=4.4.0,<5.0)", "urllib3 (<3.0)", "uvicorn (<1.0)", "websocket-client (<2.0)", "websockets (<12.0)"]
 store-test = ["coverage (==7.3.1)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)"]
-strategies = ["bitsandbytes (==0.41.0)", "deepspeed (>=0.8.2,<=0.9.3)"]
+strategies = ["bitsandbytes (>=0.42.0,<1.0)", "deepspeed (>=0.8.2,<=0.9.3)"]
 test = ["click (==8.1.7)", "cloudpickle (>=1.3,<3.0)", "coverage (==7.3.1)", "fastapi", "httpx (==0.25.0)", "onnx (>=0.14.0,<2.0)", "onnxruntime (>=0.15.0,<2.0)", "pandas", "pandas (>1.0,<3.0)", "playwright (==1.38.0)", "psutil (<6.0)", "pympler", "pytest (==7.4.0)", "pytest-asyncio (==0.21.1)", "pytest-cov (==4.1.0)", "pytest-doctestplus (==1.0.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "pytest-xdist (==3.3.1)", "requests-mock (==1.11.0)", "scikit-learn (>0.22.1,<2.0)", "setuptools (<69.0)", "tensorboard (>=2.9.1,<3.0)", "tensorboardX (>=2.2,<3.0)", "torchmetrics (>=0.7.0,<2.0)", "trio (<0.22.0)", "uvicorn"]
 
 [[package]]
@@ -2088,13 +2100,13 @@ files = [
 
 [[package]]
 name = "packaging"
-version = "24.0"
+version = "24.1"
 description = "Core utilities for Python packages"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "packaging-24.0-py3-none-any.whl", hash = "sha256:2ddfb553fdf02fb784c234c7ba6ccc288296ceabec964ad2eae3777778130bc5"},
-    {file = "packaging-24.0.tar.gz", hash = "sha256:eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"},
+    {file = "packaging-24.1-py3-none-any.whl", hash = "sha256:5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124"},
+    {file = "packaging-24.1.tar.gz", hash = "sha256:026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"},
 ]
 
 [[package]]
@@ -2347,13 +2359,13 @@ tenacity = ">=6.2.0"
 
 [[package]]
 name = "prompt-toolkit"
-version = "3.0.46"
+version = "3.0.47"
 description = "Library for building powerful interactive command lines in Python"
 optional = false
 python-versions = ">=3.7.0"
 files = [
-    {file = "prompt_toolkit-3.0.46-py3-none-any.whl", hash = "sha256:45abe60a8300f3c618b23c16c4bb98c6fc80af8ce8b17c7ae92db48db3ee63c1"},
-    {file = "prompt_toolkit-3.0.46.tar.gz", hash = "sha256:869c50d682152336e23c4db7f74667639b5047494202ffe7670817053fd57795"},
+    {file = "prompt_toolkit-3.0.47-py3-none-any.whl", hash = "sha256:0d7bfa67001d5e39d02c224b663abc33687405033a8c422d0d675a5a13361d10"},
+    {file = "prompt_toolkit-3.0.47.tar.gz", hash = "sha256:1e1b29cb58080b1e69f207c893a1a7bf16d127a5c30c9d17a25a5d77792e5360"},
 ]
 
 [package.dependencies]
@@ -2557,13 +2569,13 @@ six = ">=1.5"
 
 [[package]]
 name = "pytorch-lightning"
-version = "2.2.5"
+version = "2.3.0"
 description = "PyTorch Lightning is the lightweight PyTorch wrapper for ML researchers. Scale your models. Write less boilerplate."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pytorch-lightning-2.2.5.tar.gz", hash = "sha256:8d06d0166e2204f82864f5d2b53a367c2c375d9cd5a7f6174434b2dffeaef7e9"},
-    {file = "pytorch_lightning-2.2.5-py3-none-any.whl", hash = "sha256:67a7800863326914f68f6afd68f427855ef2315b4f00d554be8ea4c0f0557fd8"},
+    {file = "pytorch-lightning-2.3.0.tar.gz", hash = "sha256:89caf90e3543b314508493f26e0eca8d5e10e43e3d9e6c143acd8ddceb584ce2"},
+    {file = "pytorch_lightning-2.3.0-py3-none-any.whl", hash = "sha256:b8eec361f4342ca628d0d8e6985511c9515435e4db62c5e982bb1c53a5a5140a"},
 ]
 
 [package.dependencies]
@@ -2572,17 +2584,17 @@ lightning-utilities = ">=0.8.0"
 numpy = ">=1.17.2"
 packaging = ">=20.0"
 PyYAML = ">=5.4"
-torch = ">=1.13.0"
+torch = ">=2.0.0"
 torchmetrics = ">=0.7.0"
 tqdm = ">=4.57.0"
 typing-extensions = ">=4.4.0"
 
 [package.extras]
-all = ["bitsandbytes (==0.41.0)", "deepspeed (>=0.8.2,<=0.9.3)", "gym[classic-control] (>=0.17.0)", "hydra-core (>=1.0.5)", "ipython[all] (<8.15.0)", "jsonargparse[signatures] (>=4.27.7)", "lightning-utilities (>=0.8.0)", "matplotlib (>3.1)", "omegaconf (>=2.0.5)", "requests (<2.32.0)", "rich (>=12.3.0)", "tensorboardX (>=2.2)", "torchmetrics (>=0.10.0)", "torchvision (>=0.14.0)"]
+all = ["bitsandbytes (>=0.42.0)", "deepspeed (>=0.8.2,<=0.9.3)", "hydra-core (>=1.0.5)", "ipython[all] (<8.15.0)", "jsonargparse[signatures] (>=4.27.7)", "lightning-utilities (>=0.8.0)", "matplotlib (>3.1)", "omegaconf (>=2.0.5)", "requests (<2.32.0)", "rich (>=12.3.0)", "tensorboardX (>=2.2)", "torchmetrics (>=0.10.0)", "torchvision (>=0.15.0)"]
 deepspeed = ["deepspeed (>=0.8.2,<=0.9.3)"]
-dev = ["bitsandbytes (==0.41.0)", "cloudpickle (>=1.3)", "coverage (==7.3.1)", "deepspeed (>=0.8.2,<=0.9.3)", "fastapi", "gym[classic-control] (>=0.17.0)", "hydra-core (>=1.0.5)", "ipython[all] (<8.15.0)", "jsonargparse[signatures] (>=4.27.7)", "lightning-utilities (>=0.8.0)", "matplotlib (>3.1)", "omegaconf (>=2.0.5)", "onnx (>=0.14.0)", "onnxruntime (>=0.15.0)", "pandas (>1.0)", "psutil (<5.9.6)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "requests (<2.32.0)", "rich (>=12.3.0)", "scikit-learn (>0.22.1)", "tensorboard (>=2.9.1)", "tensorboardX (>=2.2)", "torchmetrics (>=0.10.0)", "torchvision (>=0.14.0)", "uvicorn"]
-examples = ["gym[classic-control] (>=0.17.0)", "ipython[all] (<8.15.0)", "lightning-utilities (>=0.8.0)", "requests (<2.32.0)", "torchmetrics (>=0.10.0)", "torchvision (>=0.14.0)"]
-extra = ["bitsandbytes (==0.41.0)", "hydra-core (>=1.0.5)", "jsonargparse[signatures] (>=4.27.7)", "matplotlib (>3.1)", "omegaconf (>=2.0.5)", "rich (>=12.3.0)", "tensorboardX (>=2.2)"]
+dev = ["bitsandbytes (>=0.42.0)", "cloudpickle (>=1.3)", "coverage (==7.3.1)", "deepspeed (>=0.8.2,<=0.9.3)", "fastapi", "hydra-core (>=1.0.5)", "ipython[all] (<8.15.0)", "jsonargparse[signatures] (>=4.27.7)", "lightning-utilities (>=0.8.0)", "matplotlib (>3.1)", "omegaconf (>=2.0.5)", "onnx (>=0.14.0)", "onnxruntime (>=0.15.0)", "pandas (>1.0)", "psutil (<5.9.6)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "requests (<2.32.0)", "rich (>=12.3.0)", "scikit-learn (>0.22.1)", "tensorboard (>=2.9.1)", "tensorboardX (>=2.2)", "torchmetrics (>=0.10.0)", "torchvision (>=0.15.0)", "uvicorn"]
+examples = ["ipython[all] (<8.15.0)", "lightning-utilities (>=0.8.0)", "requests (<2.32.0)", "torchmetrics (>=0.10.0)", "torchvision (>=0.15.0)"]
+extra = ["bitsandbytes (>=0.42.0)", "hydra-core (>=1.0.5)", "jsonargparse[signatures] (>=4.27.7)", "matplotlib (>3.1)", "omegaconf (>=2.0.5)", "rich (>=12.3.0)", "tensorboardX (>=2.2)"]
 strategies = ["deepspeed (>=0.8.2,<=0.9.3)"]
 test = ["cloudpickle (>=1.3)", "coverage (==7.3.1)", "fastapi", "onnx (>=0.14.0)", "onnxruntime (>=0.15.0)", "pandas (>1.0)", "psutil (<5.9.6)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-random-order (==1.1.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "scikit-learn (>0.22.1)", "tensorboard (>=2.9.1)", "uvicorn"]
 
@@ -4077,4 +4089,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "3afeffbce40452b067b3f714f17354d91dad68c07d0a502da48add66d00d1a12"
+content-hash = "8cc0d9bb766bd0045886d29a1e43ee4fc69dab6b11e2077fe7c9b4fb3858ce5f"

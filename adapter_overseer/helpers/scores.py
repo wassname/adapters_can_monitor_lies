@@ -25,10 +25,11 @@ def sum_select_choices_from_logits(logits_last: Float[Tensor, 'b h'], choice_ids
     probs = logits_last.softmax(1)
 
     # flatten
-    flat_choice_ids = rearrange(choice_ids, 'b c n -> b (c n)')
+    flat_choice_ids = rearrange(choice_ids, 'b c n -> b (c n)').to(device)
 
     # select
-    inds = torch.arange(bs).to(device)
+    inds = torch.arange(bs).to(device).unsqueeze(1)
+    # shape mismatch: indexing tensors could not be broadcast together with shapes inds [2], flat_choice_ids [2, 4]
     flat_choice_probs = probs[inds, flat_choice_ids]
 
     # unflatten
