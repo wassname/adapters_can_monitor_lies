@@ -12,7 +12,7 @@ from torch import Tensor
 from einops import rearrange
 import torch
 
-from adapter_overseer.helpers.select import select, select2
+from adapter_overseer.helpers.select import select_multi_from_tensor
 
 default_class2choices = [['No', 'Negative', 'negative', 'no', 'false', 'wrong', 'False', '0'], ['Yes', 'Positive', 'positive', 'yes', 'true', 'correct', 'right', 'True', '1']]
 
@@ -28,9 +28,7 @@ def sum_select_choices_from_logits(logits_last: Float[Tensor, 'b h'], choice_ids
     flat_choice_ids = rearrange(choice_ids, 'b c n -> b (c n)').to(device)
 
     # select
-    inds = torch.arange(bs).to(device).unsqueeze(1)
-    # shape mismatch: indexing tensors could not be broadcast together with shapes inds [2], flat_choice_ids [2, 4]
-    flat_choice_probs = probs[inds, flat_choice_ids]
+    flat_choice_probs = select_multi_from_tensor(probs, flat_choice_ids)
 
     # unflatten
     choice_probs = rearrange(flat_choice_probs, 'b (c n) -> b c n', c=choice_ids.shape[1]).sum(2)
