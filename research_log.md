@@ -56,3 +56,13 @@ First I need to make the dataset
 
 I moved ds creating to https://github.com/wassname/lie_elicitation_prompts
 It's much better! I really check for knowledge, the code is cleaner etc
+
+# 2024-06-15 13:30:14
+
+I think I have most of the bugs out, it still a bit unstable, here's some ideas
+
+- can I accumulate the original hidden_states.... but then they wouldn't be paired with the inputs?
+- can I up the learning rate?
+- right now I'm doing it over all hidden states... like in the paper, but maybe not?
+  - OK we need to equally sample from a keep and retain dataset
+- read the paper again with a highlighter
