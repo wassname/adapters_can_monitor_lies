@@ -59,10 +59,95 @@ It's much better! I really check for knowledge, the code is cleaner etc
 
 # 2024-06-15 13:30:14
 
-I think I have most of the bugs out, it still a bit unstable, here's some ideas
+ think I have most of the bugs out, it still a bit unstable, here's some ideas
 
 - can I accumulate the original hidden_states.... but then they wouldn't be paired with the inputs?
 - can I up the learning rate?
 - right now I'm doing it over all hidden states... like in the paper, but maybe not?
   - OK we need to equally sample from a keep and retain dataset
 - read the paper again with a highlighter
+
+ ## Genie paper 
+
+ https://arxiv.org/pdf/2311.07723
+
+ distinguishing the concept of instruction-following from highly conflated representations remains challenging. We release our datasets and code (https://github.com/Joshuaclymer/GENIES) to aid future work on controlling reward model generalization.
+
+We summarize our main contributions as follows:
+
+    1.
+
+    To the authors’ knowledge, we perform the most thorough investigation of LLM generalization to date, which reveals novel observations about their biases and scaling behavior.
+    2.
+
+    We contribute 69 distribution shifts for studying instruction-tuning generalization, most of which are comprised of datasets that we either partly or fully generate using ChatGPT.
+    3.
+
+    We propose a benchmark for controlling reward model generalization and novel metrics for evaluating fine-tuning interventions.
+
+    Generalization Analogies: A Testbed for Generalizing AI Oversight to Hard-To-Measure Domains"
+
+They contribute 69 datasets for evaluating distribution shifts
+  > We release our datasets and code (https://github.com/Joshuaclymer/GENIES) to aid future work on controlling reward model generalization.
+
+> We test seven tuning interventions: 
+> - few-shot classification (where the shot examples are sampled from the source), 
+> - LoRA fine-tuning (Hu et al., 2021), 
+> - prompt-tuning (Lester et al., 2021), 
+> - Mass Mean Shift (MMS) (Li et al., 2023), 
+> - Linear Artificial Tomography (LAT) (Zou et al., 2023), 
+> - Contrast Consistent Search (CCS) (Burns et al., 2022), 
+> - and Contrastive Representation Arithmetic (CRA).
+> For 81% of target datasets, LoRA (Hu et al., 2021) is Ibest and Mass Mean Shift (Li et al., 2023) is Ibest for 13%.
+> Ibest is the intervention that achieves state-of-the-art accuracy o
+
+Dataset creation. Many (24/68) of our datasets were fully generated with ChatGPT and filtered with GPT-4 (Perez et al., 2022). Some (11/68) were repurposed entirely from existing datasets. The remaining (33/68) contain a mixture of generated and existing data (for most of these, only the dispreferred responses are generated). We either directly use or draw significant inspiration from the following
+preexisting datasets: 
+
+- TruthfulQA (Lin et al., 2022), 
+- ARC (Clark et al., 2018), 
+- APPS (Hendrycks et al., 2021b), 
+- MATH(Hendrycks et al., 2021a), 
+- SHP (Ethayarajh et al., 2022), 
+- A GENIES: Generalizing AI Oversight to Hard-to-Measure Domains cleaned version of the Alpaca dataset (Ruebsamen, 2023),
+- MMLU (Hendrycks et al., 2021b), 
+- Winogender Schemas (Rudinger et al., 2018), 
+- inverse scaling datasets (McKenzie et al., 2023), 
+- datasets generated in (Perez et al., 2022), 
+- GPT-4 RLHF data (Peng et al., 2023), 
+- BIG-Bench (Srivastava et al., 2023), 
+- Anthropic sycophancy datasets (Sharma et al., 2023), 
+- and I-Raven
+
+also see 
+
+https://github.com/DalasNoin/exploring_modelgraded_evaluation/blob/main/deception_eval/deception.jsonl
+
+
+also in elk
+- liar
+- trivia_qa
+- truthful_qa_mc
+
+# 2024-06-15 20:19:50 Shower thoughts
+
+- I need to balance the loss by the mask! So if it's 0.75, then I need to multiply one loss by 0.75 and the other by 0.25
+  - oh wait I took the mean so it doesn't matter
+- Someone pointed out that that orthogonal loss is just promoting garbage... so try and experiment that's more like the diff of means. Where I make the desired behaviour stay, and the undesired stuff like the desired stuff.
+
+# 2024-06-16 12:44:03
+
+I shouldn't use a schedule here, but a constant with early stopping?
+the paper doesn't say
+
+
+Appendix c https://arxiv.org/pdf/2406.04313
+
+  In this section, we discuss several important design considerations:
+
+    1. Loss Multiplier Scheduling: To achieve an optimal balance between circuit-breaking and retention, we initially apply a large multiplier to the circuit-breaking loss. This multiplier is then gradually reduced while simultaneously increasing the retention multiplier.
+    2. Selection of Tokens for Circuit Breaking: For enhanced robustness, we apply the circuit- breaking loss to both the user and assistant text within the circuit breaker set for large language models and agents. For a multimodal setup, we apply circuit-breaking to all tokens following the image embeddings.
+    3. Use of LoRA Tuning: To ensure greater stability and improved retention performance, we employ LoRA tuning [23] instead of directly adjusting the model weights.
+
+@ Related work
+![alt text](image.png)

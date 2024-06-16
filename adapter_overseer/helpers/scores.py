@@ -17,7 +17,7 @@ from adapter_overseer.helpers.select import select_multi_from_tensor
 default_class2choices = [['No', 'Negative', 'negative', 'no', 'false', 'wrong', 'False', '0'], ['Yes', 'Positive', 'positive', 'yes', 'true', 'correct', 'right', 'True', '1']]
 
 
-j
+
 def sum_select_choices_from_logits(logits_last: Float[Tensor, 'b h'], choice_ids: Int[Tensor, 'b c n']) -> Float[Tensor, 'b c']:
     """sum the logits for each set of choices"""
     bs = logits_last.shape[0]

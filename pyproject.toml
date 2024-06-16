@@ -40,6 +40,7 @@ ipykernel = "^6.29.4"
 tensorboardx = "^2.6.2.2"
 tensorboard = "^2.17.0"
 flash-attn = "^2.5.9.post1"
+torch-tb-profiler = "^0.4.3"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.25.2"

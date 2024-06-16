@@ -3502,6 +3502,27 @@ url = "https://download.pytorch.org/whl/cu121"
 reference = "pytorch"
 
 [[package]]
+name = "torch-tb-profiler"
+version = "0.4.3"
+description = "PyTorch Profiler TensorBoard Plugin"
+optional = false
+python-versions = ">=3.6.2"
+files = [
+    {file = "torch_tb_profiler-0.4.3-py3-none-any.whl", hash = "sha256:207a49b05572dd983e4ab29eb5e0fcadd60374a8f93c78ec638217e8d18788dc"},
+    {file = "torch_tb_profiler-0.4.3.tar.gz", hash = "sha256:8b8d29b2de960b3c4423087b23cec29beaf9ac3a8c7b046c18fd25b218f726b1"},
+]
+
+[package.dependencies]
+pandas = ">=1.0.0"
+tensorboard = ">=1.15,<2.1.0 || >2.1.0"
+
+[package.extras]
+blob = ["azure-storage-blob"]
+gs = ["google-cloud-storage"]
+hdfs = ["fsspec", "pyarrow"]
+s3 = ["boto3"]
+
+[[package]]
 name = "torchmetrics"
 version = "1.4.0.post0"
 description = "PyTorch native Metrics"
@@ -4089,4 +4110,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "8cc0d9bb766bd0045886d29a1e43ee4fc69dab6b11e2077fe7c9b4fb3858ce5f"
+content-hash = "f658866e9ec68110d35a37c9a205e0a80d929063d3b5844de04c88093f4231a3"
