@@ -985,6 +985,22 @@ test-full = ["adlfs", "aiohttp (!=4.0.0a0,!=4.0.0a1)", "cloudpickle", "dask", "d
 tqdm = ["tqdm"]
 
 [[package]]
+name = "galore-torch"
+version = "1.0"
+description = "GaLore: Memory-Efficient LLM Training by Gradient Low-Rank Projection"
+optional = false
+python-versions = "*"
+files = [
+    {file = "galore-torch-1.0.tar.gz", hash = "sha256:469f793a0ae1c29cc42d9ba4550fed66983936cb50eccb46b06fbd16cfde40b9"},
+    {file = "galore_torch-1.0-py3-none-any.whl", hash = "sha256:7339bd6f6ea4557c5c9ae58026d67414bba2a0c7a7e7f1d69a05514ff565dd20"},
+]
+
+[package.dependencies]
+bitsandbytes = "*"
+torch = "*"
+transformers = "*"
+
+[[package]]
 name = "grpcio"
 version = "1.64.1"
 description = "HTTP/2-based RPC framework"
@@ -4110,4 +4126,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "f658866e9ec68110d35a37c9a205e0a80d929063d3b5844de04c88093f4231a3"
+content-hash = "1b3f8fdbd4e90eeece658a121bc7cd7fed275e75d61e4598e15550560717dc98"

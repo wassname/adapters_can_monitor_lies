@@ -151,3 +151,63 @@ Appendix c https://arxiv.org/pdf/2406.04313
 
 @ Related work
 ![alt text](image.png)
+
+# 2024-06-20 11:14:20
+
+A bit stuck, I can certrainly read the paper again and check for bugs but overall I've observed
+
+- it's a bit unstable: either degrading into incoherence or not changeing much. This makes me think the task is too hard. As opposed to if I observed unrelated changes. This is after some improvement to simplify the hyperparameters.
+
+I have tried:
+
+- I tried big and small lora, lora on few and many layers
+- I tried lr schedule and constant
+- I tried many weights between the reroute and retrain losses
+- I tried moving the bad repr to the good ones instead of removing it
+- long trainings
+- with no grad accum
+- hidden_states vs residual... I think it's the first one considering we are only using 10 and 20
+- doing it not over the system inst...
+
+I haven't tried:
+
+- no coefficients
+- larger model
+- no 4bit (could try 8bit, smaller batch)
+- a more balanced dataset
+- and more **obvious dataset**!!!!
+  - can also just do elk, and in **reading a lie**!!! e.g. even just addition and subtraction
+
+
+I noticed some weird things:
+
+- even the base model is getting zero in truthfulqa?
+
+
+Some other ideas:
+- perhaps lots of gradient accumulation? A very large run
+- perhaps using mean mass diff? but then I can't backprop directly
+- more data, I only have ~800
+- don't detach gradient from base.... that way backprop could potentially trace further?
+
+My objective is to modify, using lora, the hidden states to be less like the bad more like the good, and to retain the good. But it is difficult if they are very similar. And for some behaviours it is hard to find good examples.
+
+
+Overall this is promising because
+- it's not restricted to linear
+- backpropr is a more powerfull tools than matrix mult
+
+
+# 2024-06-20 18:40:36
+
+Tried not detach, as well as no coeff
+
+It seems like it's unsolvable, and it's probobly not because lroa is bad but the guidance is bad. Is there a way to get a better dataset here? Perhaps dropout?
+
+Try skipping batches with no examples of one or he other? it's valid
+
+- [~] I tried with no gradient accum.... fail it was just noise
+- [x] I tried skiping unbalanced batches.... that worked!!
+- [/] now I'm going to try training it to lie? maybe I should try telling the truth
+- [/] I'm also only training on the last 100 tokens
+- 
