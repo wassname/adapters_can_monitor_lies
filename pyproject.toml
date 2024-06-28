@@ -16,8 +16,8 @@ loguru = "^0.7.2"
 tqdm = "^4.66.1"
 einops = "^0.7.0"
 jaxtyping = "^0.2.28"
-eleuther-elk = "0.1.1"
-baukit = {git = "https://github.com/davidbau/baukit"}
+eleuther-elk = {git = "https://github.com/EleutherAI/elk.git"}
+# baukit = {git = "https://github.com/davidbau/baukit"}
 # simple-parsing = "^0.1.4"
 torch = {version = "^2.3+cu121", source = "pytorch"}
 peft = "^0.11.1"

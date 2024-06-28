@@ -673,10 +673,8 @@ version = "0.1.1"
 description = "Keeping language models honest by directly eliciting knowledge encoded in their activations"
 optional = false
 python-versions = ">=3.10"
-files = [
-    {file = "eleuther-elk-0.1.1.tar.gz", hash = "sha256:f15c8aa8312a133900c04400135da159f2969965358f7b71f18a23e4284382f7"},
-    {file = "eleuther_elk-0.1.1-py3-none-any.whl", hash = "sha256:8522b095453134c9be918f5a1b1a7c671ad00172c70aba5903413d99b97a8659"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 accelerate = "*"
@@ -698,6 +696,12 @@ transformers = ">=4.0.0"
 [package.extras]
 8bit = ["bitsandbytes"]
 dev = ["hypothesis", "pre-commit", "pyfakefs", "pyright (==1.1.304)", "pytest", "scikit-learn"]
+
+[package.source]
+type = "git"
+url = "https://github.com/EleutherAI/elk.git"
+reference = "HEAD"
+resolved_reference = "84e99a36a5050881d85f1510a2486ce46ac1f942"
 
 [[package]]
 name = "evaluate"
@@ -4126,4 +4130,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "1b3f8fdbd4e90eeece658a121bc7cd7fed275e75d61e4598e15550560717dc98"
+content-hash = "766a569518403095a2cec09683de1180efa2fde0198780d233214586219742ca"
