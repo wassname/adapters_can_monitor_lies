@@ -22,17 +22,17 @@ def sum_select_choices_from_logits(logits_last: Float[Tensor, 'b h'], choice_ids
     """sum the logits for each set of choices"""
     bs = logits_last.shape[0]
     device = logits_last.device
-    probs = logits_last.softmax(1)
+    log_probs = logits_last.log_softmax(-1)
 
     # flatten
     flat_choice_ids = rearrange(choice_ids, 'b c n -> b (c n)').to(device)
 
     # select
-    flat_choice_probs = select_multi_from_tensor(probs, flat_choice_ids)
+    flat_choice_logps = select_multi_from_tensor(log_probs, flat_choice_ids)
 
     # unflatten
-    choice_probs = rearrange(flat_choice_probs, 'b (c n) -> b c n', c=choice_ids.shape[1]).sum(2)
-    return choice_probs
+    choice_logps = rearrange(flat_choice_logps, 'b (c n) -> b c n', c=choice_ids.shape[1]).sum(2)
+    return choice_logps
 
 
 
