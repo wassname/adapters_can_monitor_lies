@@ -8,11 +8,13 @@ import torch.nn.functional as F
 def select_multi_from_tensor(logits: Float[Tensor, 'b h'], choice_ids: Int[Tensor, 'b ...']) -> Float[Tensor, 'b ...']:
     """select from the 2nd dim of a tensor"""
     # TODO use gather? https://github.com/eric-mitchell/direct-preference-optimization/blob/main/trainers.py#L90
-    inds = torch.arange(logits.shape[0]).to(logits.device)
-    for _ in range(choice_ids.ndim - 1):
-        inds = inds.unsqueeze(-1)
-    r = logits[inds, choice_ids.long()]
-    return r
+    return torch.gather(logits, 1, choice_ids.long())
+
+    # inds = torch.arange(logits.shape[0]).to(logits.device)
+    # for _ in range(choice_ids.ndim - 1):
+    #     inds = inds.unsqueeze(-1)
+    # r = logits[inds, choice_ids.long()]
+    # return r
 
 
 # def select_multi_from_tensor2(logits, choice_ids):

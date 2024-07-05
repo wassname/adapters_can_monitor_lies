@@ -211,3 +211,57 @@ Try skipping batches with no examples of one or he other? it's valid
 - [/] now I'm going to try training it to lie? maybe I should try telling the truth
 - [/] I'm also only training on the last 100 tokens
 - 
+
+# 2024-06-30 09:08:37
+
+I did one with 8 bit and large gradient accumulated batches, and it did seem to change more, although it lost coherency
+
+ # 2024-07-04 05:25:20
+
+
+ What about just diff  and l2? No wait then we still change everything, I want to incentivise the good to stay the same
+ Instead of competing losses, can I just minus one from the other, would that be more stable?
+
+- trying, mask is based on mean not absolute (unstable or stable)
+- no sparsity
+- [ ] high l1? Or should I just use breaking and l1?
+- [ ] don't register loss unless we have both, hoping for more stable lsos curves
+- [ ] dont detatch or eval
+
+oh maybe I should weihgt the weight by the logratio? hmmm a soft score how much I want and don't want them?
+
+
+# 2024-07-04 19:49:54
+
+Stabilisation:
+- don't detach... this seems to work but double check the base is not changing?? I noticed it collapse into incoherency ??
+- `rep_adapt = collect_hs(outputs.hidden_states)[:, :, -20:]` not all tokens?
+  - try both all and last, maybe last will lead to coherency? Or change last, keep rest
+  - [x] 1: degrade
+  - [x] all: coherent
+  - [ ] exp weighted?
+- `mask_desired = (log_ratios > log_ratios.mean())` ? 
+  - this saying always correct the worse half.... but this is relative so it will drift?
+- [ ] try soft mask
+- If one loss is not present, don't register the loss
+- I don't know that I need the coeffecients?
+- weight_decay=1e-2, ?
+
+# 2024-07-05 08:12:17
+
+I did that was coherent but didn't learn... meh
+
+Exp lower weught decay 1e-2 -> 1e4
+lower alpha 4->1
+degrade
+
+tasks:
+- [x] only generate 3 times, once base, then base and adapt
+- [ ] eval: it should go from lying 10% or lying 100%! Make sure the 10% is there
+  - [ ] need to eval on original ds as well as test
+- [ ] also use the multichoice thing for everything... trying
+- [ ] ewm on tokens, last 20 tokens. hmm but maybe retain should be on the same length
+- [ ] Idea of **DPO** but hidden states....? I guess that's what I'm doing? except
+  - [ ] long preference strings!
+- [x] and stop the log spam
+- [ ] **soft mask**

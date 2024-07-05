@@ -1,0 +1,171 @@
+{
+    "os": "Linux-6.5.0-26-generic-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "heartbeatAt": "2024-07-05T04:24:54.827379",
+    "startedAt": "2024-07-05T04:24:53.782217",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/wassname/adapters_can_monitor_lies.git",
+        "commit": "26d028c778f3203a27b2010299aa1b635906eb27"
+    },
+    "email": "github@wassname.org",
+    "root": "/media/wassname/SGIronWolf/projects5/elk/adapters_can_monitor_lies",
+    "host": "wassname-fractal-desktop",
+    "username": "wassname",
+    "executable": "/media/wassname/SGIronWolf/projects5/elk/adapters_can_monitor_lies/.venv/bin/python",
+    "cpu_count": 12,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 3085.845541666667,
+        "min": 2200.0,
+        "max": 3700.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2874.541,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3082.507,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3371.817,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3100.873,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3614.133,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 2877.342,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 4625.926,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 4630.801,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3937.312,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3704.644,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 4546.244,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 4572.143,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 2200.0,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 2874.669,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3082.519,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3527.001,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3591.583,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3082.599,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 2200.0,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 4522.122,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 4028.368,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3711.595,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 3882.623,
+            "min": 2200.0,
+            "max": 3700.0
+        },
+        {
+            "current": 4532.698,
+            "min": 2200.0,
+            "max": 3700.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1832.2072448730469,
+            "used": 1614.2912368774414
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11811160064
+        },
+        {
+            "name": "NVIDIA GeForce RTX 3090",
+            "memory_total": 25769803776
+        }
+    ],
+    "memory": {
+        "total": 62.69633102416992
+    }
+}

@@ -42,6 +42,8 @@ tensorboard = "^2.17.0"
 flash-attn = "^2.5.9.post1"
 torch-tb-profiler = "^0.4.3"
 galore-torch = "^1.0"
+beartype = "^0.18.5"
+wandb = "^0.17.4"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.25.2"
