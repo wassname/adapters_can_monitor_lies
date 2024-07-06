@@ -265,3 +265,23 @@ tasks:
   - [ ] long preference strings!
 - [x] and stop the log spam
 - [ ] **soft mask**
+
+Huh but in long training it destab?
+![alt text](image-1.png)
+
+It actually worked though, %6 lies to 80%, but much less coverage coherency, hmm
+
+# 2024-07-06 07:51:40
+
+Now that it's stable, what about no grad accum steps? oooh 1e-3 it way too high
+
+And what about full DPO strings?
+
+What about just swapping the bad outputs, keeping the good outptus, and otherwise keeping the same coverage?
+
+
+Losses:
+- mse rr, vs mae retain: no diff. mae 100x bigger
+- both mse? little change
+- both mae
+- both smooth_l1?
